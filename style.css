@@ -1,0 +1,166 @@
+/* Reseta margens e define a fonte padrão */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+  background-color: #f8f6fc; /* Fundo bem claro com leve tom roxo */
+  color: #2d2b38;
+  padding: 20px;
+}
+
+/* Container centralizado */
+.container {
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+/* Cabeçalho */
+.header {
+  text-align: center;
+  margin-bottom: 30px;
+  padding: 20px;
+  background-color: #ffffff;
+  border-radius: 12px;
+  border-bottom: 4px solid #f1c40f; /* Detalhe amarelo */
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.header h1 {
+  color: #5b2c6f; /* Roxo principal */
+  font-size: 2rem;
+  margin-bottom: 5px;
+}
+
+.subtitulo {
+  color: #666;
+  font-weight: 500;
+}
+
+/* Grid de Cards de Resumo */
+.cards-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 15px;
+  margin-bottom: 30px;
+}
+
+/* Estilo do Card em Bloco (Opção B) */
+.card {
+  background-color: #ede7f6; /* Fundo roxo bem clarinho */
+  border-radius: 10px;
+  padding: 18px;
+  text-align: center;
+  border: 1px solid #d1c4e9;
+}
+
+.card h3 {
+  font-size: 0.9rem;
+  color: #4a235a;
+  margin-bottom: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.valor-card {
+  font-size: 1.8rem;
+  font-weight: bold;
+  color: #3b184f;
+}
+
+/* Destaque para o card de frequência */
+.card-frequencia {
+  background-color: #fffde7; /* Amarelo bem suave */
+  border: 1px solid #fff59d;
+}
+
+.status-frequencia {
+  display: inline-block;
+  margin-top: 5px;
+  font-size: 0.75rem;
+  background-color: #f1c40f; /* Amarelo principal */
+  color: #000;
+  padding: 2px 8px;
+  border-radius: 12px;
+  font-weight: bold;
+}
+
+/* Tabela Responsiva */
+.tabela-container {
+  background-color: #ffffff;
+  border-radius: 12px;
+  padding: 15px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  overflow-x: auto; /* Permite rolar horizontalmente no celular se necessário */
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+}
+
+th, td {
+  padding: 12px 15px;
+  border-bottom: 1px solid #eee;
+}
+
+th {
+  background-color: #6c3483; /* Cabeçalho roxo */
+  color: #ffffff;
+  font-size: 0.95rem;
+}
+
+th:first-child {
+  border-top-left-radius: 8px;
+}
+
+th:last-child {
+  border-top-right-radius: 8px;
+}
+
+tr:hover {
+  background-color: #f4ecf7; /* Efeito ao passar o mouse */
+}
+
+/* Badges de Situação */
+.status-bom {
+  background-color: #d4edda;
+  color: #155724;
+  padding: 4px 10px;
+  border-radius: 12px;
+  font-size: 0.85rem;
+  font-weight: bold;
+}
+
+.status-atencao {
+  background-color: #fff3cd; /* Amarelo alerta */
+  color: #856404;
+  padding: 4px 10px;
+  border-radius: 12px;
+  font-size: 0.85rem;
+  font-weight: bold;
+}
+
+.status-indisponivel {
+  background-color: #e2e3e5;
+  color: #383d41;
+  padding: 4px 10px;
+  border-radius: 12px;
+  font-size: 0.85rem;
+}
+
+/* Adaptação para telas muito pequenas */
+@media (max-width: 600px) {
+  .header h1 {
+    font-size: 1.5rem;
+  }
+  
+  th, td {
+    padding: 8px 10px;
+    font-size: 0.85rem;
+  }
+}
