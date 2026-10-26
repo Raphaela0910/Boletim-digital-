@@ -1,3 +1,4 @@
+
 /* Reseta margens e define a fonte padrão */
 * {
   margin: 0;
@@ -21,7 +22,7 @@ body {
 /* Cabeçalho */
 .header {
   text-align: center;
-  margin-bottom: 30px;
+  margin-bottom: 20px;
   padding: 20px;
   background-color: #ffffff;
   border-radius: 12px;
@@ -40,6 +41,101 @@ body {
   font-weight: 500;
 }
 
+/* Card de Login por PIN */
+.card-login {
+  background-color: #ffffff;
+  border-radius: 12px;
+  padding: 25px;
+  max-width: 450px;
+  margin: 0 auto 30px auto;
+  text-align: center;
+  border: 1px solid #d1c4e9;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.card-login h2 {
+  color: #5b2c6f;
+  font-size: 1.4rem;
+  margin-bottom: 8px;
+}
+
+.card-login p {
+  color: #666;
+  font-size: 0.95rem;
+  margin-bottom: 15px;
+}
+
+.form-login {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  margin-bottom: 10px;
+}
+
+.form-login input {
+  padding: 10px 15px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 1rem;
+  width: 160px;
+  text-align: center;
+  outline: none;
+}
+
+.form-login input:focus {
+  border-color: #6c3483;
+}
+
+.form-login button, .painel-acoes button {
+  background-color: #6c3483;
+  color: #ffffff;
+  border: none;
+  padding: 10px 18px;
+  border-radius: 8px;
+  font-weight: bold;
+  cursor: pointer;
+  font-size: 0.95rem;
+  transition: background-color 0.2s;
+}
+
+.form-login button:hover, .painel-acoes button:hover {
+  background-color: #5b2c6f;
+}
+
+/* Painel de Controles e Ações */
+.painel-acoes {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  margin-bottom: 20px;
+  background-color: #ffffff;
+  padding: 15px;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+#btn-salvar {
+  background-color: #27ae60;
+}
+
+#btn-salvar:hover {
+  background-color: #219150;
+}
+
+.mensagem-status {
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: #5b2c6f;
+}
+
+.mensagem-erro {
+  color: #c0392b;
+}
+
+.mensagem-sucesso {
+  color: #27ae60;
+}
+
 /* Grid de Cards de Resumo */
 .cards-grid {
   display: grid;
@@ -48,7 +144,7 @@ body {
   margin-bottom: 30px;
 }
 
-/* Estilo do Card em Bloco (Opção B) */
+/* Estilo do Card em Bloco */
 .card {
   background-color: #ede7f6; /* Fundo roxo bem clarinho */
   border-radius: 10px;
@@ -94,7 +190,7 @@ body {
   border-radius: 12px;
   padding: 15px;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
-  overflow-x: auto; /* Permite rolar horizontalmente no celular se necessário */
+  overflow-x: auto;
 }
 
 table {
@@ -123,7 +219,22 @@ th:last-child {
 }
 
 tr:hover {
-  background-color: #f4ecf7; /* Efeito ao passar o mouse */
+  background-color: #f4ecf7;
+}
+
+/* Campos de Edição de Notas e Faltas */
+.input-edicao {
+  width: 60px;
+  padding: 6px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  text-align: center;
+  font-size: 0.9rem;
+}
+
+.input-edicao.campo-invalido {
+  border: 2px solid #e74c3c;
+  background-color: #fadbd8;
 }
 
 /* Badges de Situação */
@@ -162,5 +273,13 @@ tr:hover {
   th, td {
     padding: 8px 10px;
     font-size: 0.85rem;
+  }
+
+  .form-login {
+    flex-direction: column;
+  }
+
+  .form-login input {
+    width: 100%;
   }
 }
