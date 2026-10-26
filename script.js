@@ -1,4 +1,3 @@
-
 // Configuração Fixa do Aluno
 const CONFIG_ALUNO = {
   turma: "8C",
@@ -373,4 +372,60 @@ async function salvarDados() {
     if (!valN3.valido) { inpN3.classList.add("campo-invalido"); possuiErros = true; }
 
     if (!valF1.valido) { inpF1.classList.add("campo-invalido"); possuiErros = true; }
-    if (!valF2.valido) { inpF2.classList.add("campo-invalido"); possuiErros =
+    if (!valF2.valido) { inpF2.classList.add("campo-invalido"); possuiErros = true; }
+    if (!valF3.valido) { inpF3.classList.add("campo-invalido"); possuiErros = true; }
+
+    novasDisciplinas.push({
+      disciplina: item.disciplina,
+      tri1: valN1.valor,
+      tri2: valN2.valor,
+      tri3: valN3.valor,
+      faltas: [valF1.valor || 0, valF2.valor || 0, valF3.valor || 0]
+    });
+  });
+
+  if (possuiErros) {
+    msgStatus.textContent = "Por favor, corrija os campos destacados em vermelho (Notas de 0 a 10 e faltas números inteiros).";
+    msgStatus.className = "mensagem-status mensagem-erro";
+    return;
+  }
+
+  msgStatus.textContent = "Salvando...";
+
+  try {
+    const resposta = await fetch(`${CONFIG_ALUNO.apiUrl}/api/v1/boletins/salvar`, {
+      method: "PUT",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        turma: CONFIG_ALUNO.turma,
+        numero_chamada: CONFIG_ALUNO.numeroChamada,
+        pin: pinSessao,
+        dados: {
+          disciplinas: novasDisciplinas
+        }
+      })
+    });
+
+    if (!resposta.ok) {
+      msgStatus.textContent = "Falha ao salvar as alterações. Tente novamente.";
+      msgStatus.className = "mensagem-status mensagem-erro";
+      return;
+    }
+
+    // Sucesso no salvamento
+    dadosBoletim = novasDisciplinas;
+    modoEdicao = false;
+
+    document.getElementById("btn-editar").textContent = "Alterar dados";
+    document.getElementById("btn-salvar").style.display = "none";
+
+    renderizarBoletim();
+
+    msgStatus.textContent = "Dados salvos com sucesso!";
+    msgStatus.className = "mensagem-status mensagem-sucesso";
+
+  } catch (erro) {
+    msgStatus.textContent = "Não foi possível conectar ao servidor. Tente novamente.";
+    msgStatus.className = "mensagem-status mensagem-erro";
+  }
+}
