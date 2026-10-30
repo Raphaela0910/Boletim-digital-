@@ -283,3 +283,84 @@ tr:hover {
     width: 100%;
   }
 }
+
+/* ==========================================================================
+   ESTILOS EXCLUSIVOS DA ÁREA DE GRÁFICOS
+   ========================================================================== */
+
+.area-graficos {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 18px;
+  margin-bottom: 30px;
+}
+
+.grafico-card {
+  background-color: #ffffff;
+  border-radius: 12px;
+  padding: 18px;
+  border: 1px solid #d1c4e9;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  display: flex;
+  flex-direction: column;
+  transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+.grafico-card h2 {
+  font-size: 1.1rem;
+  color: #5b2c6f;
+  margin-bottom: 12px;
+  text-align: center;
+}
+
+.grafico-container {
+  position: relative;
+  width: 100%;
+  height: 380px;
+  flex: 1;
+}
+
+.grafico-container-alt {
+  height: 480px;
+}
+
+/* Badge e Destaque para Situação de Perigo no Card de Faltas */
+.badge-perigo {
+  display: inline-block;
+  background-color: #e74c3c;
+  color: #ffffff;
+  font-weight: bold;
+  font-size: 0.75rem;
+  padding: 3px 8px;
+  border-radius: 12px;
+  margin-bottom: 8px;
+  align-self: center;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.card-perigo {
+  border: 2px solid #e74c3c !important;
+  box-shadow: 0 0 10px rgba(231, 76, 60, 0.2) !important;
+}
+
+/* Responsividade dos Gráficos: Tablet (2 colunas) e Celular (1 coluna) */
+@media (max-width: 992px) {
+  .area-graficos {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 650px) {
+  .area-graficos {
+    grid-template-columns: 1fr;
+  }
+
+  .grafico-container {
+    height: 300px;
+  }
+
+  .grafico-container-alt {
+    height: 420px;
+  }
+}
